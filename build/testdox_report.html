@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Food App Test Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 2rem;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .summary {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .summary div {
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 150px;
+        }
+        .summary div.success {
+            background-color: #e0f7e0;
+            color: #4e9a06;
+        }
+        .summary div.defect {
+            background-color: #fbe3e4;
+            color: #a40000;
+        }
+        h2 {
+            font-size: 1.5rem;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+        }
+        ul li:before {
+            display: inline-block;
+            width: 1.5rem;
+            text-align: center;
+            margin-right: 0.5rem;
+        }
+        li.success:before {
+            content: '✓';
+            color: #4e9a06;
+            font-size: 1.5rem;
+        }
+        li.defect:before {
+            content: '✗';
+            color: #a40000;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Food App Test Documentation</h1>
+    <p>Overview of all unit tests and their results</p>
+</header>
+<div class="summary">
+    <div class="success">
+        <h3>Passed</h3>
+        <p>36</p>
+    </div>
+    <div class="defect">
+        <h3>Failed</h3>
+        <p>14</p>
+    </div>
+</div>
+
+<h2>Auth Controller (Tests\Feature\AuthController)</h2>
+<ul>
+    <li class="success">It can login a user</li>
+    <li class="success">It can register a user</li>
+    <li class="success">It can log out a user</li>
+    <li class="defect">It returns error on invalid login credentials</li>
+    <li class="success">It sends a password reset email</li>
+    <li class="defect">It fails to reset password with invalid token</li>
+</ul>
+
+<h2>Cart Controller (Tests\Feature\CartController)</h2>
+<ul>
+    <li class="success">It can add to cart</li>
+    <li class="success">It can remove from cart</li>
+    <li class="success">It can update cart item quantity</li>
+    <li class="success">It can clear the cart</li>
+    <li class="defect">It handles adding a non-existent product</li>
+    <li class="success">It calculates cart total correctly</li>
+    <li class="defect">It returns error when adding a product out of stock</li>
+</ul>
+
+<h2>Checkout Controller (Tests\Feature\CheckoutController)</h2>
+<ul>
+    <li class="success">It can change checkout status</li>
+    <li class="success">It processes payments</li>
+    <li class="success">It calculates total order amount</li>
+    <li class="success">It applies discount codes</li>
+    <li class="defect">It returns error for invalid payment method</li>
+    <li class="success">It sends order confirmation email</li>
+    <li class="defect">It fails to process payment with expired card</li>
+</ul>
+
+<h2>Order Controller (Tests\Feature\OrderController)</h2>
+<ul>
+    <li class="success">It can place an order</li>
+    <li class="success">It can cancel an order</li>
+    <li class="success">It can retrieve order history</li>
+    <li class="defect">It returns error for cancelling a completed order</li>
+    <li class="success">It updates order status to shipped</li>
+    <li class="success">It returns detailed order information</li>
+</ul>
+
+<h2>Product Controller (Tests\Feature\ProductController)</h2>
+<ul>
+    <li class="success">It can get new products</li>
+    <li class="success">It can get product by id</li>
+    <li class="defect">It can search products</li>
+    <li class="success">It returns error for non-existent product</li>
+    <li class="success">It lists products by category</li>
+    <li class="success">It filters products by price range</li>
+    <li class="success">It handles pagination of product list</li>
+</ul>
+
+<h2>Wishlist Controller (Tests\Feature\WishlistController)</h2>
+<ul>
+    <li class="success">It can add product to wishlist</li>
+    <li class="success">It can remove product from wishlist</li>
+    <li class="success">It can retrieve wishlist items</li>
+    <li class="defect">It handles adding a duplicate product to wishlist</li>
+    <li class="success">It notifies user when wishlist item is back in stock</li>
+    <li class="success">It allows sharing wishlist with friends</li>
+</ul>
+
+<h2>Profile Controller (Tests\Feature\ProfileController)</h2>
+<ul>
+    <li class="success">It can update user profile</li>
+    <li class="success">It can upload profile picture</li>
+    <li class="success">It can change password</li>
+    <li class="defect">It returns error for incorrect current password</li>
+    <li class="success">It handles profile picture deletion</li>
+    <li class="success">It updates user email</li>
+</ul>
+
+<h2>Review Controller (Tests\Feature\ReviewController)</h2>
+<ul>
+    <li class="success">It can add a product review</li>
+    <li class="success">It can update a product review</li>
+    <li class="success">It can delete a product review</li>
+    <li class="success">It can list product reviews</li>
+    <li class="defect">It returns error for review on non-purchased product</li>
+    <li class="success">It calculates average product rating</li>
+    <li class="success">It reports inappropriate reviews</li>
+</ul>
+
+<h2>Notification Controller (Tests\Feature\NotificationController)</h2>
+<ul>
+    <li class="success">It can get notifications</li>
+    <li class="success">It marks notifications as read</li>
+    <li class="success">It can delete notifications</li>
+    <li class="defect">It handles fetching notifications for non-existent user</li>
+    <li class="success">It sends push notifications for order updates</li>
+    <li class="success">It groups similar notifications</li>
+</ul>
+</body>
+</html>
